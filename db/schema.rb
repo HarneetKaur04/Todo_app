@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_06_221158) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_06_234207) do
   create_table "groups", force: :cascade do |t|
     t.string "title"
     t.boolean "done"
@@ -19,13 +19,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_06_221158) do
   end
 
   create_table "todos", force: :cascade do |t|
-    t.bigint "group_id"
     t.string "title"
     t.boolean "done"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "group_id", null: false
+    t.index ["group_id"], name: "index_todos_on_group_id"
   end
 
   add_foreign_key "todos", "groups"
-
 end
