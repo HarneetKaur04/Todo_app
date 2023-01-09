@@ -4,7 +4,14 @@ class TodosController < ApplicationController
     render json: todos
   end
 
+  def show
+    todo = Todo.find(params[:id])
+    render json: todo
+  end
+
   def create
+    logger.debug "Checking hahahahahahahahaha"
+    # todo = Todo.create(title: params[:lala][:title], group_id: params[:lala][:group_id] )
     todo = Todo.create(todo_param)
     render json: todo
   end
@@ -22,6 +29,6 @@ class TodosController < ApplicationController
   end
   private
     def todo_param
-      params.require(:todo).permit(:title, :done)
+      params.require(:lala).permit(:title, :group_id, :done)
     end
 end

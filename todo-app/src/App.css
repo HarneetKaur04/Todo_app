@@ -89,7 +89,6 @@ input[placeholder] {
 }
 
 .listWrapper {
-	position: absolute;
 	bottom: 2%;
 	top: 50%;
 	right: 0;
